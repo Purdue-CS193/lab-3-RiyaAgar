@@ -14,22 +14,30 @@ public class MathUtils {
      * raiseToPower -- (base)^(exp)
      * Raise the number base to power exp
      */
-    public static double raiseToPower(int base, int exp) {
+    public static double raiseToPower(double base, double exp) {
         /* Set initial result to be just the number */
-        int res = base;
+        double res = base;
 
         /* Determine if the exponent is negative */
         boolean isNegative = true;
-        if (exp < 0) {
-            exp *= -1;
+        if (exp == 1){
+            return res;
+        }
+        if (exp == -1){
+            return divideNumbers(1, res);
+        }
+        if (exp > 0) {
+            //exp *= -1;
             isNegative = false;
         }
-
+        else {
+            exp *= -1;
+        }
         /* Multiply the result by the base exp times
             Ex: base = 2, exp = 2
                --> res = 2, then res = 4 */
-        for (int i = 0; i < exp; i++) {
-           res *= base; 
+        for (int i = 1; i < exp; i++) {
+           res = res * base;
         }
 
         /* If it's a negative exponent, we should invert it! */
