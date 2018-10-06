@@ -19,10 +19,10 @@ public class MathUtils {
         int res = base;
 
         /* Determine if the exponent is negative */
-        boolean isNegative = false;
+        boolean isNegative = true;
         if (exp < 0) {
             exp *= -1;
-            isNegative = true;
+            isNegative = false;
         }
 
         /* Multiply the result by the base exp times
@@ -33,13 +33,13 @@ public class MathUtils {
         }
 
         /* If it's a negative exponent, we should invert it! */
-        if (isNegative == false) {
+        if (isNegative == true) {
             double dividedRes = divideNumbers(1, res);
             return dividedRes;
         }
         /* Otherwise, we are safe to just return the result */
         else {
-            return exp;
+            return res;
         }
     }    
 }
